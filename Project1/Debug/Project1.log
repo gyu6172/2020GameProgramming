@@ -1,0 +1,16 @@
+﻿  Rectangle.cpp
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(4): error C2259: 'Rectangle': 추상 클래스를 인스턴스화할 수 없습니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.h(3): message : 'Rectangle' 선언을 참조하십시오.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(4): message : 다음 멤버가 원인입니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(4): message : 'void Shape::scale(void)': abstract입니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Shape.h(18): message : 'Shape::scale' 선언을 참조하십시오.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(4,13): error C2259: 'Rectangle': 추상 클래스를 인스턴스화할 수 없습니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.h(3): message : 'Rectangle' 선언을 참조하십시오.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(4,13): message : 다음 멤버가 원인입니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(4,13): message : 'void Shape::scale(void)': abstract입니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Shape.h(18): message : 'Shape::scale' 선언을 참조하십시오.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(8): error C2259: 'Rectangle': 추상 클래스를 인스턴스화할 수 없습니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.h(3): message : 'Rectangle' 선언을 참조하십시오.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(8): message : 다음 멤버가 원인입니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Rectangle.cpp(8): message : 'void Shape::scale(void)': abstract입니다.
+D:\20612김형규 소전\cpp 파일스\Project1\Project1\Shape.h(18): message : 'Shape::scale' 선언을 참조하십시오.
