@@ -1,0 +1,4 @@
+﻿  DataMager.cpp
+D:\20612김형규 소전\cpp 파일스\Project2\Project2\DataMager.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+D:\20612김형규 소전\cpp 파일스\Project2\Project2\DataMager.h(3,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  Project2.vcxproj -> D:\20612김형규 소전\cpp 파일스\Project2\Debug\Project2.exe
