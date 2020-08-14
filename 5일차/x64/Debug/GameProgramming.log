@@ -1,0 +1,41 @@
+﻿  stdafx.cpp
+  Animation.cpp
+  Application.cpp
+  Background.cpp
+D:\20612김형규 소전\5일차\Background.cpp(21,19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Console.cpp
+  GameScene.cpp
+D:\20612김형규 소전\5일차\GameScene.cpp(95,38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  inputManager.cpp
+D:\20612김형규 소전\5일차\inputManager.cpp(42,27): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\inputManager.cpp(42,22): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  main.cpp
+  MainScene.cpp
+D:\20612김형규 소전\5일차\MainScene.cpp(21,94): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\MainScene.cpp(21,64): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\MainScene.cpp(27,91): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\MainScene.cpp(27,62): warning C4244: '인수': 'LONG'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Number.cpp
+  Object.cpp
+D:\20612김형규 소전\5일차\Object.cpp(63,18): warning C4244: '+=': 'FLOAT'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Object.cpp(64,19): warning C4244: '+=': 'FLOAT'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Object.cpp(65,17): warning C4244: '+=': 'FLOAT'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Object.cpp(66,20): warning C4244: '+=': 'FLOAT'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Object.cpp(93,12): warning C4244: 'return': 'FLOAT'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Object.cpp(97,12): warning C4244: 'return': 'FLOAT'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Object.cpp(109,10): warning C4244: '=': 'int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Object.cpp(110,10): warning C4244: '=': 'int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Player.cpp
+D:\20612김형규 소전\5일차\Player.cpp(7,15): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+D:\20612김형규 소전\5일차\Player.cpp(29,30): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Player.cpp(32,31): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Player.cpp(36,15): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Scene.cpp
+  SceneManager.cpp
+  SoundManager.cpp
+  Sprite.cpp
+D:\20612김형규 소전\5일차\Sprite.cpp(40,48): warning C4244: '인수': 'int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\20612김형규 소전\5일차\Sprite.cpp(40,35): warning C4244: '인수': 'int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TextureManager.cpp
+  코드를 생성하고 있습니다...
+LINK : fatal error LNK1104: 'd3dx9.lib' 파일을 열 수 없습니다.
