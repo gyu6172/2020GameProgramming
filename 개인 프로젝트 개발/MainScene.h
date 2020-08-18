@@ -12,12 +12,12 @@ public:
 
 	Sprite* background;
 	Sprite* startButton;
-	Sprite* exitButton;
-	Sprite* explainButton;
 	Sprite* title;
 
 	void Render();
 	void Update(float dTime);
+
+	D3DXVECTOR2 Lerp(D3DXVECTOR2 p1, D3DXVECTOR2 p2, float power);
 
 };
 

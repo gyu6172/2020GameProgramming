@@ -28,7 +28,7 @@ void Animation::Render(){
 }
 
 void Animation::Update(float dTime){
-	timeChecker += dTime;
+	timeChecker += dTime+dTime;
 
 	if (timeChecker > 1.f / fps) {
 		timeChecker = 0;

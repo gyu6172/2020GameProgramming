@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "MainScene.h"
 
-D3DXVECTOR2 Lerp(D3DXVECTOR2 p1, D3DXVECTOR2 p2, float power) {
+D3DXVECTOR2 MainScene::Lerp(D3DXVECTOR2 p1, D3DXVECTOR2 p2, float power) {
 	return p1 + (p2 - p1) * power;
 }
 

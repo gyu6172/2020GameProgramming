@@ -4,6 +4,7 @@
 
 GameScene::GameScene(){
 	score = 0;
+	playtime = 0;
 	backgroundInstatics = false;
 	bridgeInstatics = false;
 
@@ -73,6 +74,9 @@ void GameScene::Render(){
 void GameScene::Update(float dTime) {
 	Scene::Update(dTime);
 
+	playtime += dTime;
+	std::cout << "playtime:"<<playtime << std::endl;
+
 	//int coinRandNum = rand() % 10 + 1;
 	//if (coinRandNum == 1) {
 	//	Sprite* tmpCoin = new Sprite("Resources/Images/coin-yellow.png");
@@ -139,6 +143,10 @@ void GameScene::Update(float dTime) {
 	}
 
 	//---------------------------------------------------------------
+
+	if ((player->getPosY() < 0) || (player->getPosY() > 805)) {
+		sceneManager->ChangeScene(new EndScene());
+	}
 
 	//for (auto iter = obstacleList.begin(); iter != obstacleList.end(); iter++) {
 

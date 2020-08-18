@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "Animation.h"
 #include "MainScene.h"
+#include "EndScene.h"
 #include "Number.h"
 #include "Player.h"
 #include "Background.h"
@@ -15,6 +16,7 @@ class GameScene :
 private:
 
 	int score;
+	float playtime;
 	bool backgroundInstatics;
 	bool bridgeInstatics;
 

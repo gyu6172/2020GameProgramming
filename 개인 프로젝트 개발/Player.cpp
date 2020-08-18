@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "Scene.h"
 using namespace std;
 
 Player::Player(){
@@ -40,7 +41,7 @@ void Player::Update(float dTime){
 	cout << "dTime:" << dTime << endl;
 
 	if (isJump) {
-		setPos(getPosX(), getPosY() - 320 * dTime);
+		setPos(getPosX(), getPosY() - 360 * dTime);
 	}
 
 	if (inputmanager->GetKeyState(VK_SPACE) == KEY_DOWN) {
@@ -48,18 +49,15 @@ void Player::Update(float dTime){
 		isJump = true;
 	}
 
-	if (SCREEN_WIDTH < getPosX()+ playerAnimation->getWidth()) {
-		setPos(SCREEN_WIDTH-playerAnimation->getWidth(), getPosY());
-	}
-	if (getPosX() < 0) {
-		setPos(0, getPosY());
-	}
-	if (getPosY() < 0) {
-		setPos(getPosX(), 0);
-	}
-	if (getPosY()+playerAnimation->getHeight() > 805) {
+
+	//if ((getPosY() < 0) || (getPosY() + playerAnimation->getHeight() > 805)) {
+	//	sceneManager->ChangeScene(new EndScene());
+	//	return;
+	//}
+
+	/*if (getPosY()+playerAnimation->getHeight() > 805) {
 		setPos(getPosX(), 805-playerAnimation->getHeight());
-	}
+	}*/
 
 	playerAnimation->Update(dTime);
 }

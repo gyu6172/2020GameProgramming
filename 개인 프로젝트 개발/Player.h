@@ -1,7 +1,7 @@
 #pragma once
 #include "Object.h"
 #include "Animation.h"
-
+#include "EndScene.h"
 class Player :
 	public Object
 {

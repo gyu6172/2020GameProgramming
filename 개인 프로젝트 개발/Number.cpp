@@ -4,16 +4,16 @@
 Number::Number() {
 	currentNum = 0;
 
-	num[0] = new Sprite("Resources/Images/number-0.png");
-	num[1] = new Sprite("Resources/Images/number-1.png");
-	num[2] = new Sprite("Resources/Images/number-2.png");
-	num[3] = new Sprite("Resources/Images/number-3.png");
-	num[4] = new Sprite("Resources/Images/number-4.png");
-	num[5] = new Sprite("Resources/Images/number-5.png");
-	num[6] = new Sprite("Resources/Images/number-6.png");
-	num[7] = new Sprite("Resources/Images/number-7.png");
-	num[8] = new Sprite("Resources/Images/number-8.png");
-	num[9] = new Sprite("Resources/Images/number-9.png");
+	num[0] = new Sprite("Resources/Images/num0.png");
+	num[1] = new Sprite("Resources/Images/num1.png");
+	num[2] = new Sprite("Resources/Images/num2.png");
+	num[3] = new Sprite("Resources/Images/num3.png");
+	num[4] = new Sprite("Resources/Images/num4.png");
+	num[5] = new Sprite("Resources/Images/num5.png");
+	num[6] = new Sprite("Resources/Images/num6.png");
+	num[7] = new Sprite("Resources/Images/num7.png");
+	num[8] = new Sprite("Resources/Images/num8.png");
+	num[9] = new Sprite("Resources/Images/num9.png");
 
 	for (int i = 0; i < 10; i++) {
 		AddChild(num[i]);
