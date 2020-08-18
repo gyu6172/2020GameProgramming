@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "Background.h"
 #include "Bridge.h"
+#include "Obstacle.h"
 #include <list>
 
 class GameScene :
@@ -16,16 +17,19 @@ class GameScene :
 private:
 
 	int score;
-	float playtime;
+	bool canScore;
 	bool backgroundInstatics;
 	bool bridgeInstatics;
+	bool obstacleInstatics;
 
+	float timer;
+	
 	std::list<Background*> backgroundList;
 	std::list<Bridge*> bridgeList;
-	std::list<Sprite*> obstacleList;
-	std::list<Sprite*> coinList;
+	std::list<Obstacle*> downObstacleList;
+	std::list<Obstacle*> upObstacleList;
 
-	Number numArray[4];
+	Number scoreArray[3];
 	Player* player;
 
 public:
@@ -34,7 +38,5 @@ public:
 
 	void Render();
 	void Update(float dTime);
-
-
 };
 

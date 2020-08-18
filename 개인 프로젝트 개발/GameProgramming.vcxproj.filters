@@ -114,6 +114,9 @@
     <ClCompile Include="EndScene.cpp">
       <Filter>소스 파일\Game\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Obstacle.cpp">
+      <Filter>소스 파일\Game\Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -169,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="EndScene.h">
       <Filter>헤더 파일\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstacle.h">
+      <Filter>헤더 파일\Game\Sources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,24 +1,45 @@
 #include "stdafx.h"
 #include "GameScene.h"
 
+using namespace std;
 
 GameScene::GameScene(){
 	score = 0;
-	playtime = 0;
+	timer = 0;
+	canScore = false;
 	backgroundInstatics = false;
 	bridgeInstatics = false;
+	obstacleInstatics = false;
 
 	Background* background = new Background();
 	background->setPos(0, 0);
 	backgroundList.push_back(background);
 	AddObject(background);
+	//--------------------------------------------------------------------
+	//厘局拱 积己
+	int random = rand() % 566 + 30;
 
+	Obstacle* upObstacle = new Obstacle('u');
+	upObstacle->setPos(SCREEN_WIDTH, random-900);
+	upObstacleList.push_back(upObstacle);
+	AddObject(upObstacle);
+
+	Obstacle* downObstacle = new Obstacle('d');
+	downObstacle->setPos(SCREEN_WIDTH, random+180);
+	downObstacleList.push_back(downObstacle);
+	AddObject(downObstacle);
 	//--------------------------------------------------------------------------
 	//促府 积己
 	Bridge* bridge = new Bridge();
 	bridge->setPos(0, 805);
 	bridgeList.push_back(bridge);
 	AddObject(bridge);
+	//----------------------------------------------------------------------------
+	//痢荐 积己
+	for (int i = 0; i < 3; i++) {
+		scoreArray[i].setPos((SCREEN_WIDTH / 2) + i * 80, 10);
+	}
+
 
 	/*Sprite* tempBridge = new Sprite("Resources/Images/bg_bridge.png");
 	tempBridge->setPos(SCREEN_WIDTH, 805);
@@ -56,9 +77,15 @@ void GameScene::Render(){
 	for (auto& bridge : bridgeList) {
 		bridge->Render();
 	}
-	//for (auto& obstacle : obstacleList) {
-	//	obstacle->Render();
-	//}
+	for (auto& downobstacle : downObstacleList) {
+		downobstacle->Render();
+	}
+	for (auto& upobstacle : upObstacleList) {
+		upobstacle->Render();
+	}
+	for (int i = 0; i < 3; i++) {
+		scoreArray[i].Render();
+	}
 	//for (auto& coin : coinList) {
 	//	coin->Render();
 	//}
@@ -73,28 +100,11 @@ void GameScene::Render(){
 
 void GameScene::Update(float dTime) {
 	Scene::Update(dTime);
-
-	playtime += dTime;
-	std::cout << "playtime:"<<playtime << std::endl;
-
-	//int coinRandNum = rand() % 10 + 1;
-	//if (coinRandNum == 1) {
-	//	Sprite* tmpCoin = new Sprite("Resources/Images/coin-yellow.png");
-	//	tmpCoin->setPos(SCREEN_WIDTH + 70, 350);
-	//	coinList.push_back(tmpCoin);
-	//}
-	//int obstacleRandNum = rand() % 200 + 1;
-	//if (obstacleRandNum == 1) {
-	//	Sprite* tmpObstacle = new Sprite("Resources/Images/Drop.png");
-	//	tmpObstacle->setPos(SCREEN_WIDTH, 400);
-	//	obstacleList.push_back(tmpObstacle);
-	//}
-	//numArray[0].setNum(score / 1000);
-	//numArray[1].setNum(score % 1000 / 100);
-	//numArray[2].setNum(score % 100 / 10);
-	//numArray[3].setNum(score % 10);
-
 	player->Update(dTime);
+
+	scoreArray[0].setNum(score % 1000 / 100);
+	scoreArray[1].setNum(score % 100 / 10);
+	scoreArray[2].setNum(score % 10);
 
 	//------------------------------硅版 积己----------------------------------------------
 	for (auto iter = backgroundList.begin(); iter != backgroundList.end(); iter++) {
@@ -129,9 +139,7 @@ void GameScene::Update(float dTime) {
 			iter = bridgeList.erase(iter);
 			bridgeInstatics = false;
 
-			if (iter == bridgeList.end()) {
-				break;
-			}
+			
 		}
 	}
 	if (!bridgeInstatics) {
@@ -142,15 +150,69 @@ void GameScene::Update(float dTime) {
 		bridgeInstatics = true;
 	}
 
-	//---------------------------------------------------------------
+	//------------------------厘局拱 积己-------------------------------------------------
+	timer += dTime;
+	if (timer > 2.5) {
+		timer = 0;
 
-	if ((player->getPosY() < 0) || (player->getPosY() > 805)) {
-		sceneManager->ChangeScene(new EndScene());
+		int random = rand() % 566 + 30;
+
+		Obstacle* upObstacle = new Obstacle('u');
+		upObstacle->setPos(SCREEN_WIDTH, random - 900);
+		upObstacleList.push_back(upObstacle);
+		AddObject(upObstacle);
+
+		Obstacle* downObstacle = new Obstacle('d');
+		downObstacle->setPos(SCREEN_WIDTH, random + 180);
+		downObstacleList.push_back(downObstacle);
+		AddObject(downObstacle);
 	}
+	//---------------------------------------------------------------------------------
+	//厘局拱 昏力
+	for (auto iter = upObstacleList.begin(); iter != upObstacleList.end(); iter++) {
+		if (player->getPosX() == (*iter)->getPosX()+120) {
+			score++;
+		}
+
+		if ((*iter)->getPosX() < -SCREEN_WIDTH) {
+			RemoveObject((*iter));
+			SAFE_DELETE(*iter);
+			iter = upObstacleList.erase(iter);
+		}
+	}
+	for (auto iter = downObstacleList.begin(); iter != downObstacleList.end(); iter++) {
+		if ((*iter)->getPosX() < -SCREEN_WIDTH) {
+			RemoveObject((*iter));
+			SAFE_DELETE(*iter);
+			iter = downObstacleList.erase(iter);
+		}
+	}
+	//---------------------------------------------------------------
+	//面倒眉农
+	int playerHeight = player->getPlayerHeight();
+	if ((player->getPosY() < 0) || (player->getPosY()+playerHeight > 805)) {
+		sceneManager->ChangeScene(new EndScene(score));
+		return;
+	}
+	for (auto check = upObstacleList.begin(); check != upObstacleList.end(); check++) {
+		if (player->IsCollisionRect((*check))) {
+			sceneManager->ChangeScene(new EndScene(score));
+			return;
+		}
+	}
+	for (auto check = downObstacleList.begin(); check != downObstacleList.end(); check++) {
+		if (player->IsCollisionRect((*check))) {
+			sceneManager->ChangeScene(new EndScene(score));
+			return;
+		}
+	}
+	//---------------------------------------------------------
+
+
 
 	//for (auto iter = obstacleList.begin(); iter != obstacleList.end(); iter++) {
 
-	//	(*iter)->setPos((*iter)->getPosX() - diff,
+	//	(*iter)->setPos((*iter)->getPosX(),
 	//		(*iter)->getPosY());
 
 	//	if ((*iter)->IsCollisionRect(player)) {
@@ -201,3 +263,4 @@ void GameScene::Update(float dTime) {
 	//	}
 	//}
 }
+

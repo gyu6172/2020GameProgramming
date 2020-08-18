@@ -20,5 +20,7 @@ public:
 
 	void Render();
 	void Update(float dTime);
+
+	int getPlayerHeight();
 };
 

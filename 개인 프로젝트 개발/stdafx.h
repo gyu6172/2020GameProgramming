@@ -34,6 +34,7 @@
 #define KEY_DOWN 2
 #define KEY_ON 3
 #define GROUND_Y 320
+#define GAME_SPEED 3.5
 
 #define SAFE_RELEASE(p) {if(p) {p->Release(); (p) = NULL;}}
 #define SAFE_DELETE(p) {if(p){delete (p); (p)=nullptr;}}

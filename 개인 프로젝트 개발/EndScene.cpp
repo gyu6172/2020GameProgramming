@@ -1,14 +1,14 @@
 #include "stdafx.h"
 #include "EndScene.h"
 #include "MainScene.h"
+#include "GameScene.h"
 
 D3DXVECTOR2 EndScene::Lerp(D3DXVECTOR2 p1, D3DXVECTOR2 p2, float power)
 {
 	return p1 + (p2 - p1) * power;
 }
-EndScene::EndScene(){
-	score = 0;
-	playtime = 0;
+EndScene::EndScene(int score){
+	this->score = score;
 
 	background = new Sprite("Resources/Images/Background.png");
 	AddObject(background);
@@ -24,8 +24,12 @@ EndScene::EndScene(){
 	startButton->setPos(SCREEN_WIDTH / 2, 400);
 
 	for (int i = 0; i < 3; i++) {
-		playtimeArray[i].setPos((SCREEN_WIDTH / 2) + (i*70), 250);
+		scoreArray[i].setPos((SCREEN_WIDTH / 2) + (i*70), 250);
 	}
+	scoreArray[0].setNum(score % 1000 / 100);
+	scoreArray[1].setNum(score % 100 / 10);
+	scoreArray[2].setNum(score % 10);
+	
 }
 
 EndScene::~EndScene(){
@@ -37,18 +41,12 @@ void EndScene::Render(){
 	gameoverTitle->Render();
 	startButton->Render();
 	for (int i = 0; i < 3; i++) {
-		playtimeArray[i].Render();
+		scoreArray[i].Render();
 	}
 }
 
 void EndScene::Update(float dTime){
 	Scene::Update(dTime);
-
-	int ran = rand() % 10;
-
-	for (int i = 0; i < 3; i++) {
-		playtimeArray[i].setNum(ran);
-	}
 
 	if (startButton->IsPointInRect(inputmanager->GetMousePos())) {
 		startButton->setScale(Lerp(startButton->getScale(), D3DXVECTOR2(1.3f, 1.3f), 5 * dTime));
@@ -63,6 +61,8 @@ void EndScene::Update(float dTime){
 			return;
 		}
 	}
+
+
 }
 
 

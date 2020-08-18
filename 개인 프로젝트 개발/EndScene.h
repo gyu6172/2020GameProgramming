@@ -7,15 +7,14 @@ class EndScene :
 	public Scene
 {
 public:
-	EndScene();
+	EndScene(int score);
 	~EndScene();
 
 	int score;
-	int playtime;
 	Sprite* background;
 	Sprite* gameoverTitle;
 	Sprite* startButton;
-	Number playtimeArray[3];
+	Number scoreArray[3];
 
 	void Render();
 	void Update(float dTime);

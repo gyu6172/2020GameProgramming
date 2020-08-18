@@ -36,10 +36,6 @@ void Player::Update(float dTime){
 
 	setPos(getPosX(), getPosY() + gravity * dTime);
 
-	cout << "X:" << getPosX() << endl;
-	cout << "Y:" << getPosY() << endl;
-	cout << "dTime:" << dTime << endl;
-
 	if (isJump) {
 		setPos(getPosX(), getPosY() - 360 * dTime);
 	}
@@ -49,15 +45,10 @@ void Player::Update(float dTime){
 		isJump = true;
 	}
 
-
-	//if ((getPosY() < 0) || (getPosY() + playerAnimation->getHeight() > 805)) {
-	//	sceneManager->ChangeScene(new EndScene());
-	//	return;
-	//}
-
-	/*if (getPosY()+playerAnimation->getHeight() > 805) {
-		setPos(getPosX(), 805-playerAnimation->getHeight());
-	}*/
-
 	playerAnimation->Update(dTime);
+}
+
+int Player::getPlayerHeight()
+{
+	return playerAnimation->getHeight();
 }
