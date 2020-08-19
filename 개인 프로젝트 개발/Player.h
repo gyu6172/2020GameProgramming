@@ -9,18 +9,22 @@ private:
 	Animation* playerAnimation;
 	float gravity = 0;
 	bool isJump = false;
-	bool doubleJump = false;
 
+	int playerCode;
 	int jumpNumber = 1;
 
 
 public:
-	Player();
+	Player(int code);
 	~Player();
 
 	void Render();
 	void Update(float dTime);
 
 	int getPlayerHeight();
+	int getPlayerWidth();
+
+	void setCode(int code);
+	int getCode();
 };
 

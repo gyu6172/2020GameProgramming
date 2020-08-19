@@ -12,13 +12,12 @@ MainScene::MainScene(){
 
 	title = new Sprite("Resources/Images/bg_title.png");
 	AddObject(title);
-	title->setScaleCenter(D3DXVECTOR2(title->getWidth() / 2, title->getHeight() / 2));
-	title->setPos(SCREEN_WIDTH/2, 100);
+	title->setPos(SCREEN_WIDTH/2-(title->getWidth()/2), 100);
 
 	startButton = new Sprite("Resources/Images/start_button.png");
 	AddObject(startButton);
 	startButton->setScaleCenter(D3DXVECTOR2(startButton->getWidth()/2, startButton->getHeight() / 2));
-	startButton->setPos(SCREEN_WIDTH/2, 350);
+	startButton->setPos(SCREEN_WIDTH/2-(startButton->getWidth()/2), 400);
 	
 
 }

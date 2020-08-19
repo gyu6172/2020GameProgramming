@@ -17,15 +17,16 @@ GameScene::GameScene(){
 	AddObject(background);
 	//--------------------------------------------------------------------
 	//장애물 생성
-	int random = rand() % 566 + 30;
+	int heightRand = rand() % 566 + 30;
+	int diffRand = rand() % 61 + 140;
 
 	Obstacle* upObstacle = new Obstacle('u');
-	upObstacle->setPos(SCREEN_WIDTH, random-900);
+	upObstacle->setPos(SCREEN_WIDTH, heightRand-900);
 	upObstacleList.push_back(upObstacle);
 	AddObject(upObstacle);
 
 	Obstacle* downObstacle = new Obstacle('d');
-	downObstacle->setPos(SCREEN_WIDTH, random+180);
+	downObstacle->setPos(SCREEN_WIDTH, heightRand+diffRand);
 	downObstacleList.push_back(downObstacle);
 	AddObject(downObstacle);
 	//--------------------------------------------------------------------------
@@ -37,7 +38,8 @@ GameScene::GameScene(){
 	//----------------------------------------------------------------------------
 	//점수 생성
 	for (int i = 0; i < 3; i++) {
-		scoreArray[i].setPos((SCREEN_WIDTH / 2) + i * 80, 10);
+		scoreArray[i].setPos(SCREEN_WIDTH / 2 - 80 - (scoreArray[i].getWidth(i)) + i * 80, 10);
+		/*scoreArray[i].setPos((SCREEN_WIDTH / 2) + i * 80, 10);*/
 	}
 
 
@@ -62,8 +64,8 @@ GameScene::GameScene(){
 	//}
 	////-------------------------------------------------------------
 	//플레이어 생성
-	player = new Player();
-	player->setPos(200, 0);
+	player = new Player(0);
+	player->setPos(200, 100);
 }
 
 GameScene::~GameScene(){
@@ -155,15 +157,16 @@ void GameScene::Update(float dTime) {
 	if (timer > 2.5) {
 		timer = 0;
 
-		int random = rand() % 566 + 30;
+		int heightRand = rand() % 566 + 30;
+		int diffRand = rand() % 61 + 140;
 
 		Obstacle* upObstacle = new Obstacle('u');
-		upObstacle->setPos(SCREEN_WIDTH, random - 900);
+		upObstacle->setPos(SCREEN_WIDTH, heightRand - 900);
 		upObstacleList.push_back(upObstacle);
 		AddObject(upObstacle);
 
 		Obstacle* downObstacle = new Obstacle('d');
-		downObstacle->setPos(SCREEN_WIDTH, random + 180);
+		downObstacle->setPos(SCREEN_WIDTH, heightRand + diffRand);
 		downObstacleList.push_back(downObstacle);
 		AddObject(downObstacle);
 	}

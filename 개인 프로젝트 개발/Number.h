@@ -18,5 +18,7 @@ public:
 	void setNum(int num);
 	int getNum();
 
+	int getWidth(int index);
+
 };
 

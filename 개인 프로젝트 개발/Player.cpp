@@ -3,18 +3,39 @@
 #include "Scene.h"
 using namespace std;
 
-Player::Player(){
+Player::Player(int code){
 	isJump = false;
-	doubleJump = false;
 	gravity = 9.8;
+	playerCode = code;
 
 	int jumpNumber = 1;
 
 	playerAnimation = new Animation(3);
-	playerAnimation->AddFrame("Resources/Images/bird1_2.png");
-	playerAnimation->AddFrame("Resources/Images/bird1_3.png");
-	playerAnimation->AddFrame("Resources/Images/bird1_2.png");
-	playerAnimation->AddFrame("Resources/Images/bird1_1.png");
+	if(playerCode==0){
+		playerAnimation->AddFrame("Resources/Images/bird1_2.png");
+		playerAnimation->AddFrame("Resources/Images/bird1_3.png");
+		playerAnimation->AddFrame("Resources/Images/bird1_2.png");
+		playerAnimation->AddFrame("Resources/Images/bird1_1.png");
+	}
+	else if (playerCode == 1) {
+		playerAnimation->AddFrame("Resources/Images/bird2_2.png");
+		playerAnimation->AddFrame("Resources/Images/bird2_3.png");
+		playerAnimation->AddFrame("Resources/Images/bird2_2.png");
+		playerAnimation->AddFrame("Resources/Images/bird2_1.png");
+	}
+	else if (playerCode == 2) {
+		playerAnimation->AddFrame("Resources/Images/bird3_2.png");
+		playerAnimation->AddFrame("Resources/Images/bird3_3.png");
+		playerAnimation->AddFrame("Resources/Images/bird3_2.png");
+		playerAnimation->AddFrame("Resources/Images/bird3_1.png");
+	}
+	else if (playerCode == 3) {
+		playerAnimation->AddFrame("Resources/Images/bird4_2.png");
+		playerAnimation->AddFrame("Resources/Images/bird4_3.png");
+		playerAnimation->AddFrame("Resources/Images/bird4_2.png");
+		playerAnimation->AddFrame("Resources/Images/bird4_1.png");
+	}
+	
 	AddChild(playerAnimation);
 
 	rect = playerAnimation->getRect();
@@ -51,4 +72,18 @@ void Player::Update(float dTime){
 int Player::getPlayerHeight()
 {
 	return playerAnimation->getHeight();
+}
+
+int Player::getPlayerWidth() {
+	return playerAnimation->getWidth();
+}
+
+
+void Player::setCode(int code){
+	playerCode = code;
+}
+
+int Player::getCode()
+{
+	return playerCode;
 }

@@ -42,3 +42,7 @@ void Number::setNum(int num){
 int Number::getNum(){
 	return currentNum;
 }
+
+int Number::getWidth(int index) {
+	return num[index]->getWidth();
+}

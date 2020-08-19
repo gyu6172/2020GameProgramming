@@ -16,16 +16,17 @@ EndScene::EndScene(int score){
 
 	gameoverTitle = new Sprite("Resources/Images/GameOverTitle.png");
 	AddObject(gameoverTitle);
-	gameoverTitle->setPos(SCREEN_WIDTH / 2, 100);
+	gameoverTitle->setPos(SCREEN_WIDTH / 2 - (gameoverTitle->getWidth()/2), 100);
 
 	startButton = new Sprite("Resources/Images/start_button.png");
 	AddObject(startButton);
 	startButton->setScaleCenter(D3DXVECTOR2(startButton->getWidth() / 2, startButton->getHeight() / 2));
-	startButton->setPos(SCREEN_WIDTH / 2, 400);
+	startButton->setPos(SCREEN_WIDTH / 2 - (startButton->getWidth()/2), 400);
 
-	for (int i = 0; i < 3; i++) {
-		scoreArray[i].setPos((SCREEN_WIDTH / 2) + (i*70), 250);
-	}
+	scoreArray[1].setPos(SCREEN_WIDTH / 2 - (scoreArray[1].getWidth(1)/2), 250);
+	scoreArray[0].setPos(scoreArray[1].getPosX() - 80, 250);
+	scoreArray[2].setPos(scoreArray[1].getPosX() + 80, 250);
+
 	scoreArray[0].setNum(score % 1000 / 100);
 	scoreArray[1].setNum(score % 100 / 10);
 	scoreArray[2].setNum(score % 10);

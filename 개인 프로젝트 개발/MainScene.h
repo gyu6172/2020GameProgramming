@@ -6,13 +6,13 @@
 class MainScene :
 	public Scene
 {
-public:
-	MainScene();
-	~MainScene();
-
+private:
 	Sprite* background;
 	Sprite* startButton;
 	Sprite* title;
+public:
+	MainScene();
+	~MainScene();
 
 	void Render();
 	void Update(float dTime);
