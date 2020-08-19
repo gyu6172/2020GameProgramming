@@ -6,7 +6,10 @@ using namespace std;
 Player::Player(int code){
 	isJump = false;
 	gravity = 9.8;
+	launch = 0;
 	playerCode = code;
+
+	up_down = true;
 
 	int jumpNumber = 1;
 
@@ -53,18 +56,68 @@ void Player::Render(){
 }
 
 void Player::Update(float dTime){
-	gravity += 20.0f;
+	if (playerCode == 0) {
+		gravity += 20.0f;
 
-	setPos(getPosX(), getPosY() + gravity * dTime);
+		setPos(getPosX(), getPosY() + gravity * dTime);
 
-	if (isJump) {
-		setPos(getPosX(), getPosY() - 360 * dTime);
+		if (isJump) {
+			setPos(getPosX(), getPosY() - 340 * dTime);
+		}
+
+		if (inputmanager->GetKeyState(VK_SPACE) == KEY_DOWN) {
+			gravity = 0;
+			isJump = true;
+		}
 	}
 
-	if (inputmanager->GetKeyState(VK_SPACE) == KEY_DOWN) {
-		gravity = 0;
-		isJump = true;
+	else if (playerCode == 1) {
+		int gravity = 300;
+
+		if (inputmanager->GetKeyState(VK_SPACE) == KEY_ON) {
+			gravity = -300;
+		}
+
+		setPos(getPosX(), getPosY() + gravity*dTime);
+
 	}
+
+	else if (playerCode == 2) {
+		gravity += 20.0f;
+		if (inputmanager->GetKeyState(VK_SPACE) == KEY_DOWN) {
+			gravity = 0;
+			up_down = !up_down;
+		}
+
+		if (up_down) {
+			setScale(D3DXVECTOR2(1,1));
+			setPos(getPosX(), getPosY() + gravity * dTime);
+		}
+		else {
+			setScale(D3DXVECTOR2(1, -1));
+			setPos(getPosX(), getPosY() - gravity * dTime);
+		}
+	}
+
+	else if (playerCode == 3) {
+		gravity += 15.0f;
+		
+		if (inputmanager->GetKeyState(VK_SPACE) == KEY_ON) {
+			launch += 15.0f;
+			gravity -= 40.0f;
+		}
+		else {
+			launch -= 25.0f;
+		}
+		if (launch <= 0) {
+			launch = 0;
+		}
+		if (gravity <= 0) {
+			gravity = 0;
+		}
+		setPos(getPosX(), getPosY() + gravity * dTime - launch*dTime);
+	}
+
 
 	playerAnimation->Update(dTime);
 }

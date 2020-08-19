@@ -89,11 +89,11 @@ D3DXVECTOR2 Object::getPos() {
 	return pos;
 }
 
-int Object::getPosX() {
+float Object::getPosX() {
 	return pos.x;
 }
 
-int Object::getPosY() {
+float Object::getPosY() {
 	return pos.y;
 }
 
@@ -103,11 +103,6 @@ RECT Object::getRect() {
 
 void Object::setParent(Object* parent) {
 	this->parent = parent;
-}
-
-void Object::setPos(int x, int y) {
-	pos.x = x;
-	pos.y = y;
 }
 
 void Object::setPos(D3DXVECTOR2 pos) {

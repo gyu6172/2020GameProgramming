@@ -117,9 +117,6 @@
     <ClCompile Include="Obstacle.cpp">
       <Filter>소스 파일\Game\Sources</Filter>
     </ClCompile>
-    <ClCompile Include="CustomizingScene.cpp">
-      <Filter>소스 파일\Game\Scenes</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -178,9 +175,6 @@
     </ClInclude>
     <ClInclude Include="Obstacle.h">
       <Filter>헤더 파일\Game\Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="CustomizingScene.h">
-      <Filter>헤더 파일\Game\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

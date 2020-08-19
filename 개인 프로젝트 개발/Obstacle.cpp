@@ -23,6 +23,6 @@ void Obstacle::Render(){
 
 void Obstacle::Update(float dTime){
 	Object::Update(dTime);
-	setPos(getPosX()- 3, getPosY());
+	setPos(getPosX()- 3.5, getPosY());
 
 }

@@ -18,7 +18,7 @@ void Background::Render() {
 void Background::Update(float dTime){
 	Object::Update(dTime);
 	
-	setPos(getPosX()- 3, getPosY());
+	setPos(getPosX()- 3.5, getPosY());
 }
 
 

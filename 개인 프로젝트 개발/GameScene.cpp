@@ -39,32 +39,12 @@ GameScene::GameScene(){
 	//점수 생성
 	for (int i = 0; i < 3; i++) {
 		scoreArray[i].setPos(SCREEN_WIDTH / 2 - 80 - (scoreArray[i].getWidth(i)) + i * 80, 10);
-		/*scoreArray[i].setPos((SCREEN_WIDTH / 2) + i * 80, 10);*/
 	}
 
-
-	/*Sprite* tempBridge = new Sprite("Resources/Images/bg_bridge.png");
-	tempBridge->setPos(SCREEN_WIDTH, 805);
-	bridgeList.push_back(tempBridge);*/
-
-	////---------------------------------------------------------------------------
-	////코인 생성
-	//Sprite* tmpCoin = new Sprite("Resources/Images/coin-yellow.png");
-	//tmpCoin->setPos(SCREEN_WIDTH + 70, 350);
-	//coinList.push_back(tmpCoin);
-	////---------------------------------------------------------------------------
-	////장애물 생성
-	//Sprite* tmpObstacle = new Sprite("Resources/Images/Drop.png");
-	//tmpObstacle->setPos(SCREEN_WIDTH, 400);
-	//obstacleList.push_back(tmpObstacle);
-	////-----------------------------------------------------------------	
-	////점수판
-	//for (int i = 0; i < 4; i++) {
-	//	numArray[i].setPos(60 * i, 10);
-	//}
 	////-------------------------------------------------------------
 	//플레이어 생성
-	player = new Player(0);
+	int playerRand = rand() % 4;
+	player = new Player(playerRand);
 	player->setPos(200, 100);
 }
 
@@ -88,12 +68,6 @@ void GameScene::Render(){
 	for (int i = 0; i < 3; i++) {
 		scoreArray[i].Render();
 	}
-	//for (auto& coin : coinList) {
-	//	coin->Render();
-	//}
-	//for (int i = 0; i < 4; i++) {
-	//	numArray[i].Render();
-	//}
 
 	player->Render();
 
@@ -140,8 +114,6 @@ void GameScene::Update(float dTime) {
 			SAFE_DELETE(*iter);
 			iter = bridgeList.erase(iter);
 			bridgeInstatics = false;
-
-			
 		}
 	}
 	if (!bridgeInstatics) {
@@ -173,7 +145,8 @@ void GameScene::Update(float dTime) {
 	//---------------------------------------------------------------------------------
 	//장애물 삭제
 	for (auto iter = upObstacleList.begin(); iter != upObstacleList.end(); iter++) {
-		if (player->getPosX() == (*iter)->getPosX()+120) {
+		
+		if (player->getPosX()-1 <= int((*iter)->getPosX()+120) && int((*iter)->getPosX() + 120) <= player->getPosX()+1) {
 			score++;
 		}
 
@@ -210,60 +183,5 @@ void GameScene::Update(float dTime) {
 		}
 	}
 	//---------------------------------------------------------
-
-
-
-	//for (auto iter = obstacleList.begin(); iter != obstacleList.end(); iter++) {
-
-	//	(*iter)->setPos((*iter)->getPosX(),
-	//		(*iter)->getPosY());
-
-	//	if ((*iter)->IsCollisionRect(player)) {
-	//		sceneManager->ChangeScene(new MainScene());
-	//		return;
-	//	}
-
-
-	//	if ((*iter)->getPosX() < -SCREEN_WIDTH) {
-	//		SAFE_DELETE(*iter);
-	//		iter = obstacleList.erase(iter);
-
-
-	//		if (iter == obstacleList.end()) {
-	//			break;
-	//		}
-	//	}
-	//}
-
-	//---------------------------------------------------------------
-
-	//for (auto iter = coinList.begin(); iter != coinList.end(); iter++) {
-
-	//	(*iter)->setPos((*iter)->getPosX() - diff,
-	//		(*iter)->getPosY());
-
-	//	if ((*iter)->getPosX() < -SCREEN_WIDTH) {
-	//		SAFE_DELETE(*iter);
-	//		iter = coinList.erase(iter);
-
-	//		if (iter == coinList.end()) {
-	//			break;
-	//		}
-	//	}
-
-	//}
-
-	//for (auto iter = coinList.begin(); iter != coinList.end(); iter++) {
-
-	//	if (player->IsCollisionRect((*iter))) {
-	//		score += 1;
-	//		SAFE_DELETE(*iter);
-	//		iter = coinList.erase(iter);
-
-	//		if (iter == coinList.end()) {
-	//			break;
-	//		}
-	//	}
-	//}
 }
 

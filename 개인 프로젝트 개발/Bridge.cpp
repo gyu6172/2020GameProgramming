@@ -17,7 +17,7 @@ void Bridge::Render() {
 
 void Bridge::Update(float dTime){
 	Object::Update(dTime);
-	setPos(getPosX() - 3, getPosY());
+	setPos(getPosX() - 3.5, getPosY());
 }
 
 

@@ -8,7 +8,9 @@ class Player :
 private:
 	Animation* playerAnimation;
 	float gravity = 0;
+	float launch = 0;
 	bool isJump = false;
+	bool up_down;
 
 	int playerCode;
 	int jumpNumber = 1;

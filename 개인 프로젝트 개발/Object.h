@@ -37,13 +37,18 @@ public:
 	D3DXVECTOR2 getPos();
 	RECT getRect();
 
-	int getPosX();
-	int getPosY();
+	float getPosX();
+	float getPosY();
 
 	void setParent(Object* parent);
-	void setPos(int x, int y);
 	void setPos(D3DXVECTOR2 pos);
 	
+	template<typename PX, typename PY>
+	void setPos(PX x, PY y) {
+		pos.x = x;
+		pos.y = y;
+	}
+
 	D3DXVECTOR2 getScale();
 	void setScale(D3DXVECTOR2 p);
 
